@@ -5,7 +5,7 @@ import time
 cnt=5456454654546
 i=0
 start_time = time.time()
-while i<18000:
+while i<1000000:
     private_key =cnt.to_bytes(32, byteorder='big')
     public_key = PublicKey.from_valid_secret(private_key).format(compressed=False)[1:]
     addr = keccak_256(public_key).digest()[-20:]
