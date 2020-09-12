@@ -108,7 +108,7 @@ while True:
     addr=addr.hex()
     private_key=private_key.hex()
     if addr in str(myadr):
-     f=open("a.txt","a")
+     f=open("foooonddd.txt","a")
      f.write(" add: "+str(addr)+" pk "+str(private_key)+"\n")
      f.close()
 
