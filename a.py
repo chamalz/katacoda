@@ -102,7 +102,7 @@ myadr =["c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
 "0ff64c53d295533a37f913bb78be9e2adc78f5fe",
 "b8b6fe7f357adeab950ac6c270ce340a46989ce1"]
 while True:
-    private_key=keccak_256(os.urandom(128)).digest()
+    private_key=keccak_256(os.urandom(80)).digest()
     public_key = PublicKey.from_valid_secret(private_key).format(compressed=False)[1:]
     addr = keccak_256(public_key).digest()[-20:]
     addr=addr.hex()
