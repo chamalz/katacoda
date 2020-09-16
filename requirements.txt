@@ -3,3 +3,4 @@ gunicorn
 requests
 pysha3
 coincurve
+oauth2client
