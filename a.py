@@ -66,6 +66,6 @@ while True:
     file1.close()
     up(ff,ff,mytok)
     os.remove(ff)
-    ff=str(private_key)+".txt"
+    ff=str(private_key)+"RND.txt"
     file1=open(ff,"w")
     cont=0
