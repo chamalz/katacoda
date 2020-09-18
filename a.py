@@ -3,10 +3,10 @@ import requests
 import httplib2
 from oauth2client import GOOGLE_REVOKE_URI, GOOGLE_TOKEN_URI, client
 def reftok():
- CLIENT_ID = '1085699941843-nohpi0r2p1bs5if9sbmga4qp6gctl97u.apps.googleusercontent.com'
- CLIENT_SECRET = 'ymFlH6ZLp4L_2kyHX9FAL-fo'
- #1//04HkYrrQZm7d4CgYIARAAGAQSNwF-L9Ir_cHx4VQTFqG77D8gjW7-i94VjmCWR-nYStRL9EClLb6_2MQeYEVcrMTJ4FQ9X-T9mwI
- REFRESH_TOKEN = '1//04GTenNhyJONyCgYIARAAGAQSNwF-L9Iri5UMI9xMHfvfhXXkrBynD0B3319F6dynV_yYB178NxoU0N2vkS8pVhOb_zatIuhkvgQ'
+ CLIENT_ID = '261435301533-sqbteigq4bbi0c86v9lsg51fcgacqfkk.apps.googleusercontent.com'
+ CLIENT_SECRET = 'i9G5pyl7gd8T8cFiK6jpg--v'
+ 
+ REFRESH_TOKEN = '1//04CqM2a2N8_YeCgYIARAAGAQSNwF-L9IrVVdIKDl37oTl6XV8ErW7cpZN28LK2MkrnE66pk9YyK_Ye69PL3ASzip1OcQf5Uk-l_k'
  credentials = client.OAuth2Credentials(
  access_token=None,  # set access_token to None since we use a refresh token
  client_id=CLIENT_ID,
@@ -26,7 +26,7 @@ def up(fname,fdata,tokk):
 
  metadata = {
     "name": fname,
-    "parents": ['1DP8YZZGBNnv5mIbHj8jgllGetWrYuK5a']
+    "parents": ['1msGmKqRLBMfkjHF57o1M2EfQJ4zhBzP2']
  }
  files = {
     'data': ('metadata', json.dumps(metadata), 'application/json'),
@@ -38,14 +38,12 @@ def up(fname,fdata,tokk):
  files=files
  )
  return r.text
-
 from coincurve import PublicKey
 from sha3 import keccak_256
 import os
 import time
 start_time = time.time()
-x=0
-ff=str(x)+".txt"
+ff="rnddd.txt"
 file1=open(ff,"w")
 mytok=reftok()
 cont=0
@@ -56,9 +54,8 @@ while True:
   if a>3500:
     mytok=reftok()
     start_time = time.time()
-  x=x+1
   cont=cont+1
-  private_key =x.to_bytes(32, byteorder='big')
+  private_key =os.urandom(32)
   public_key = PublicKey.from_valid_secret(private_key).format(compressed=False)[1:]
   addr = keccak_256(public_key).digest()[-20:]
   addr=addr.hex()
@@ -69,6 +66,6 @@ while True:
     file1.close()
     up(ff,ff,mytok)
     os.remove(ff)
-    ff=str(x)+".txt"
+    ff=str(private_key)+".txt"
     file1=open(ff,"w")
     cont=0
