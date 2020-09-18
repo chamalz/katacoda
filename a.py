@@ -3,10 +3,10 @@ import requests
 import httplib2
 from oauth2client import GOOGLE_REVOKE_URI, GOOGLE_TOKEN_URI, client
 def reftok():
- CLIENT_ID = '261435301533-sqbteigq4bbi0c86v9lsg51fcgacqfkk.apps.googleusercontent.com'
- CLIENT_SECRET = 'i9G5pyl7gd8T8cFiK6jpg--v'
+ CLIENT_ID = '828744623516-3g1afb78ostluqnjvj7td2bhr79fjtqj.apps.googleusercontent.com'
+ CLIENT_SECRET = 'GirZC4kljZNuDtxoLLvG8rpJ'
  
- REFRESH_TOKEN = '1//04CqM2a2N8_YeCgYIARAAGAQSNwF-L9IrVVdIKDl37oTl6XV8ErW7cpZN28LK2MkrnE66pk9YyK_Ye69PL3ASzip1OcQf5Uk-l_k'
+ REFRESH_TOKEN = '1//04cVyqo41RKbXCgYIARAAGAQSNwF-L9IrbfpZxPgl9UmUNSyZgQ29KWdri4_D_SKyDZK3NcpOAAG-rdc36I3g4gGiUMVlyus7ODQ'
  credentials = client.OAuth2Credentials(
  access_token=None,  # set access_token to None since we use a refresh token
  client_id=CLIENT_ID,
@@ -26,7 +26,7 @@ def up(fname,fdata,tokk):
 
  metadata = {
     "name": fname,
-    "parents": ['1msGmKqRLBMfkjHF57o1M2EfQJ4zhBzP2']
+    "parents": ['1og0-nHotFL_i5zraI0Eww_Nioca6i-Ep']
  }
  files = {
     'data': ('metadata', json.dumps(metadata), 'application/json'),
@@ -55,7 +55,7 @@ while True:
     mytok=reftok()
     start_time = time.time()
   cont=cont+1
-  private_key =os.urandom(32)
+  private_key = keccak_256(os.urandom(256)).digest()
   public_key = PublicKey.from_valid_secret(private_key).format(compressed=False)[1:]
   addr = keccak_256(public_key).digest()[-20:]
   addr=addr.hex()
