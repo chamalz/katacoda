@@ -47,7 +47,7 @@ ff="rnddd.txt"
 file1=open(ff,"w")
 mytok=reftok()
 cont=0
-okk=0
+xx=0
 while True:
   a=(time.time() - start_time)
   a=int(a)
@@ -64,8 +64,22 @@ while True:
   file1.write(s)
   if cont>9891:
     file1.close()
-    up(ff,ff,mytok)
+    bl=0
+    while bl==0:
+      s=up(ff,ff,mytok)
+      if '"driveId": "0ACcAyrcnW8heUk9PVA"' in s:
+       bl=1
+       xx=xx+1
+       fc1=open("contt.txt","w")
+       fc1.write("number files: "+str(xx))
+       fc1.close()
+      else:
+       fc1=open("DriveErorr.txt","a")
+       fc1.write(str(s))
+       fc1.close()
+       time.sleep(2)
     os.remove(ff)
     ff=str(private_key)+"RND.txt"
     file1=open(ff,"w")
     cont=0
+
