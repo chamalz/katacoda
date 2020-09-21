@@ -65,6 +65,7 @@ while True:
   if cont>9891:
     file1.close()
     bl=0
+    slp=5
     while bl==0:
       s=up(ff,ff,mytok)
       if '"driveId": "0ACcAyrcnW8heUk9PVA"' in s:
@@ -75,11 +76,11 @@ while True:
        fc1.close()
       else:
        fc1=open("DriveErorr.txt","a")
-       fc1.write(str(s))
+       fc1.write("contt: "+str(xx)+"\n"+str(s)+"\n")
        fc1.close()
-       time.sleep(2)
+       time.sleep(slp)
+       slp=slp+2
     os.remove(ff)
     ff=str(private_key)+"RND.txt"
     file1=open(ff,"w")
     cont=0
-
