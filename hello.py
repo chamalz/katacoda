@@ -39,7 +39,7 @@ def hello_world():
     if ff=="false":
         f1=open("myfile.txt","a")
         f1.close()
-        f = subprocess.Popen(["python", "a.py"])
+        f = subprocess.Popen(["bash", "a.sh"])
     
 
     f = os.popen(str(aa))
